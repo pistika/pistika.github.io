@@ -5,7 +5,7 @@ body {
 }
 
 .sign-container {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.75em;
 }
 
@@ -21,10 +21,38 @@ body {
     text-transform: uppercase;
     border-bottom: 4px double gray;
     padding: 0 0.5em;
+    font-size: 20px;
 }
 
-p.pluspadding {
-    padding: 2em 5em;
+.subtitle {
+    margin: 0;
+}
+
+.row {
+    padding: 1em 2em;
+}
+@media screen and (min-width:769px) { .row { padding: 1.5em 2em; } }
+@media screen and (min-width:1024px) { .row { padding: 2em 5.5em; } }
+
+.panel-inner { padding: 15px; }
+
+.sign-column {
+    flex-basis: 100%;
+}
+@media screen and (min-width:769px) { .sign-column { flex-basis: 50%; } }
+@media screen and (min-width:1216px) { .sign-column { flex-basis: 25%; } }
+
+p {
+    display: inline-block;
+    margin: 1em 0;
+}
+
+pre {
+    display: inline-block;
+    font-size: 0.8em;
+    margin: 1em 0;
+    width: 100%;
+    overflow-x: scroll;
 }
 
 pre > strong:first-of-type {
