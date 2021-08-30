@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Túristajelek, Hungarian Trail Signs</title>
+	<title>Turistajelek, Hungarian Trail Signs</title>
 	<meta name="description"
-	      content="Túristajelek, Túristajelzések, túra jel festések. CSS file a könnyen html-be illeszthető jelzésekért.">
+	      content="Turistajelek, Turistajelzések, túra jel festések. CSS file a könnyen html-be illeszthető jelzésekért.">
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" href="assets/css/bulma.min.css "/>
@@ -23,7 +23,7 @@
 <section class="is-dark hero" style="background-color: rgb(0,59,128);">
 	<div class="hero-body">
 		<div class="container has-text-centered has-text-white">
-			<h1 class="title">Túristajelek, Hungarian Trail Signs</h1>
+			<h1 class="title">Turistajelek, Hungarian Trail Signs</h1>
 			<h2 class="subtitle" style="margin-bottom: 1em;">Add trail signs to your html content. These are small inline SVG-s that are added to
 				your content with a single CSS file.</h2>
 			<a target="_blank" href="https://github.com/pistika/turistajelek"><img src="assets/svg/logo.svg" alt="Logo"
@@ -264,6 +264,10 @@ Bigger version. This will make it 1.5em tall.
         var nopadding = document.getElementById("nopadding");
 
         signs.forEach(function (v) {
+            if(["bike", "top", "triangle", "háromszög", "haromszog", "summit", "csucs", "memorial", "monument", "emlekmu", "emlek", "round", "circle", "dot", "source", "gyongy", "pearl", "temple", "chapel", "templom", "cross", "forras", "pont", "kor", "maria", "hpilgrim", "mzarandok", "hp", "hungarianpilgrim", "mz", "ruin", "ski", "skitour", "education", "edu", "tanosveny", "tan", "telep", "settlement", "stripe", "band", "line", "vonal", "csik", "santiago", "pecset", "stamp", "kód", "code", "veszely", "danger", "warning", "vigyazz", "vigyázz", "sav", "kapolna", "situra", "cave"].includes(v)) {
+				return
+            }
+
             let block = document.createElement("div");
             let newText = document.createTextNode(".jel-" + v);
             block.appendChild(newText);
@@ -278,7 +282,7 @@ Bigger version. This will make it 1.5em tall.
                 outer.classList.add("jel");
                 outer.classList.add("jel-" + v);
                 outer.classList.add("jel-szin-" + j);
-                outer.setAttribute("title", ".jel jel-" + v + " jel-szin-" + j.name);
+                outer.setAttribute("title", ".jel jel-" + v + " jel-szin-" + j);
 
                 let outer2 = outer.cloneNode(true);
                 let outer3 = outer.cloneNode(true);
@@ -287,17 +291,17 @@ Bigger version. This will make it 1.5em tall.
                 block.appendChild(outer);
 
                 outer2.classList.add("jel-nincsarnyek");
-                outer2.setAttribute("title", ".jel jel-" + v + " jel-szin-" + j.name + " jel-nincsarnyek");
+                outer2.setAttribute("title", ".jel jel-" + v + " jel-szin-" + j + " jel-nincsarnyek");
                 block2.appendChild(outer2);
 
                 outer3.classList.add("jel-keret");
                 outer3.classList.add("jel-nincsarnyek");
-                outer3.setAttribute("title", ".jel jel-" + v + " jel-szin-" + j.name + " jel-nincsarnyek jel-keret");
+                outer3.setAttribute("title", ".jel jel-" + v + " jel-szin-" + j + " jel-nincsarnyek jel-keret");
                 block3.appendChild(outer3);
 
                 outer4.classList.add("jel-nincsterkoz");
                 outer4.classList.add("jel-nincsarnyek");
-                outer4.setAttribute("title", ".jel jel-" + v + " jel-szin-" + j.name + " jel-nincsarnyek jel-nincsterkoz");
+                outer4.setAttribute("title", ".jel jel-" + v + " jel-szin-" + j + " jel-nincsarnyek jel-nincsterkoz");
                 block4.appendChild(outer4);
             });
 
