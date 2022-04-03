@@ -3,7 +3,7 @@
 <head>
 	<title>Turistajelek, Hungarian Trail Signs</title>
 	<meta name="description"
-	      content="Turistajelek, Turistajelzések, túra jel festések. CSS file a könnyen html-be illeszthető jelzésekért.">
+	      content="Turistajelek, turistajelzések, túra jel festések. CSS fájl a könnyen html-be illeszthető jelzésekért.">
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" href="assets/css/bulma.min.css "/>
@@ -25,7 +25,7 @@
 		<div class="container has-text-centered has-text-white">
 			<h1 class="title">Turistajelek, Hungarian Trail Signs</h1>
 			<h2 class="subtitle" style="margin-bottom: 1em;">Add trail signs to your html content. These are small inline SVG-s that are added to
-				your content with a single CSS file.</h2>
+				your content with a single CSS file and some classes.</h2>
 			<a target="_blank" href="https://github.com/pistika/turistajelek"><img src="assets/svg/logo.svg" alt="Logo"
 			                                                                       width="200"/></a><br/><br/>
 			<p>Just add a few classes and have all the signs in all the colors that you'd ever need.</p>
@@ -177,10 +177,10 @@ The basic code must contain 3 class names:
 <pre style="font-size: 0.75em;"><strong>Modifiers</strong>
 
 - jel-nincsarnyek / jel-noshadow (class)
-This will remove the CSS dropshadow from the sign
+This will remove the CSS drop shadow from the sign
 
 - jel-keret / jel-border (class)
-This will add a smell color matching border to the sign
+This will add a small color matching border to the sign
 
 - jel-nincsterkoz / jel-nowhitespace (class)
 Removes the spacing before and after the sign
@@ -255,18 +255,16 @@ Bigger version. This will make it 1.5em tall.
 </section>
 
 <script type="text/javascript">
-    const colors = ["kek","piros","sarga","zold","lila","fekete","szurke"];
 
-    const renderNodes = function (signs, colors) {
+    const renderNodes = function () {
+    	var colors = ["kek","piros","sarga","zold","lila","fekete","szurke"];
         var plain = document.getElementById("plain");
         var noshadow = document.getElementById("noshadow");
         var bordered = document.getElementById("bordered");
         var nopadding = document.getElementById("nopadding");
+        var signs = ["sav","kereszt","csucs","telepules","forras","barlang","rom","kapolna","emlekmu","pecset","kortura","tanosveny","bicikli","situra","veszely","gyongy","jakab","maria","mz","?"];
 
         signs.forEach(function (v) {
-            if(["bike", "top", "triangle", "háromszög", "haromszog", "summit", "csucs", "memorial", "monument", "emlekmu", "emlek", "round", "circle", "dot", "source", "gyongy", "pearl", "temple", "chapel", "templom", "cross", "forras", "pont", "kor", "maria", "hpilgrim", "mzarandok", "hp", "hungarianpilgrim", "mz", "ruin", "ski", "skitour", "education", "edu", "tanosveny", "tan", "telep", "settlement", "stripe", "band", "line", "vonal", "csik", "santiago", "pecset", "stamp", "kód", "code", "veszely", "danger", "warning", "vigyazz", "vigyázz", "sav", "kapolna", "situra", "cave"].includes(v)) {
-				return
-            }
 
             let block = document.createElement("div");
             let newText = document.createTextNode(".jel-" + v);
@@ -312,17 +310,8 @@ Bigger version. This will make it 1.5em tall.
         });
     };
 
-    var signNames = [];
-    fetch("build/turistajelek-latest.css", {headers: {"Content-Type": "application/json; charset=utf-8"}})
-        .then(res => res.text())
-        .then(responseCont => {
-            const regex = /\.jel\.jel\-(.*?)\:before/g;
-            const returnAarray = [...responseCont.matchAll(regex)];
-            returnAarray.forEach(function (v) {
-                signNames.push(v[1]);
-            });
-            renderNodes(signNames, colors);
-        });
+    renderNodes();
+
 </script>
 </body>
 </html>
